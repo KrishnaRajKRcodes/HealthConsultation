@@ -1,0 +1,13 @@
+﻿target/
+*.class
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.log
+application-local.properties
+application-local.yml
+src/main/resources/db.properties
+src/main/resources/db.properties
+target/

@@ -1,0 +1,27 @@
+<h1>Messages</h1>
+<div class="card">
+  <h3>New message</h3>
+  <c:choose>
+  <c:when test="${empty recipients}"><p class="muted">There is nobody you can message yet.</p></c:when>
+  <c:otherwise>
+  <form method="post" action="${formAction}">
+    <input type="hidden" name="_csrf" value="${csrf}"><input type="hidden" name="action" value="sendMessage">
+    <label>To
+      <select name="receiverId" required>
+        <c:forEach var="r" items="${recipients}"><option value="${r.id}"><c:out value="${r.name}"/> (${r.roleLabel})</option></c:forEach>
+      </select></label>
+    <label>Message<textarea name="body" rows="3" maxlength="2000" required></textarea></label>
+    <button class="btn">Send</button>
+  </form>
+  </c:otherwise></c:choose>
+</div>
+<div class="card">
+  <h3>Conversation history</h3>
+  <c:forEach var="m" items="${messages}">
+    <div class="msg ${m.senderId == sessionScope.user.id ? 'sent' : 'recv'}">
+      <b><c:out value="${m.senderName}"/></b> &rarr; <c:out value="${m.receiverName}"/> <span class="muted">${m.sentAtText}</span>
+      <p><c:out value="${m.body}"/></p>
+    </div>
+  </c:forEach>
+  <c:if test="${empty messages}"><p class="muted">No messages yet.</p></c:if>
+</div>

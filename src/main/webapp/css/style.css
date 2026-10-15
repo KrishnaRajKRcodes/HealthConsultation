@@ -1,0 +1,975 @@
+/* ==========================================
+   HEALTHCONNECT - PROFESSIONAL UI ENHANCEMENT
+   ========================================== */
+
+:root {
+    --primary: #087f8c;
+    --primary-dark: #066570;
+    --dark: #103b46;
+    --background: #f3f7fb;
+    --card: #ffffff;
+    --text: #18313f;
+    --muted: #718096;
+    --border: #e2e8f0;
+    --danger: #e5484d;
+    --success: #15956b;
+}
+
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Main dashboard layout */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 255px;
+    min-width: 255px;
+    padding: 28px 18px;
+    background: linear-gradient(180deg, #103b46, #092f39);
+    color: white;
+    box-shadow: 4px 0 18px rgba(16, 59, 70, 0.08);
+}
+
+.sidebar h2 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.sidebar .muted {
+    color: #b8d0d8;
+    font-size: 13px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 7px 0;
+    padding: 12px 14px;
+    border-radius: 9px;
+    color: #d8e8ed;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.10);
+    color: white;
+    transform: translateX(3px);
+}
+
+.sidebar a.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 650;
+    box-shadow: 0 5px 14px rgba(8, 127, 140, 0.22);
+}
+
+/* Main content */
+main {
+    flex: 1;
+    min-width: 0;
+    max-width: 1500px;
+    padding: 32px;
+}
+
+h1 {
+    margin: 0 0 24px;
+    color: #153747;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 750;
+    letter-spacing: -0.8px;
+}
+
+h2 {
+    color: #183b4b;
+}
+
+h3 {
+    margin-top: 0;
+    color: #244655;
+    font-size: 19px;
+}
+
+/* Dashboard cards */
+.card,
+.stat {
+    background: var(--card);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 5px 22px rgba(31, 57, 75, 0.045);
+    transition: box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.card {
+    padding: 24px;
+    margin-bottom: 22px;
+}
+
+.card:hover {
+    box-shadow: 0 9px 28px rgba(31, 57, 75, 0.075);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.stat {
+    padding: 23px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.stat b {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary);
+    font-size: 34px;
+    font-weight: 750;
+}
+
+/* Forms */
+label {
+    display: block;
+    margin: 14px 0 6px;
+    color: #344e5d;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 13px;
+    margin-top: 4px;
+    border: 1px solid #d3dee7;
+    border-radius: 9px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(8, 127, 140, 0.12);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+    accent-color: var(--primary);
+}
+
+label.check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 9px;
+    background: var(--primary);
+    color: white;
+    font: inherit;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(8, 127, 140, 0.18);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.danger {
+    background: var(--danger);
+}
+
+.btn.danger:hover {
+    background: #c9343b;
+}
+
+.btn.small {
+    padding: 6px 11px;
+    font-size: 13px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.grid .btn {
+    margin-bottom: 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: white;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background: #edf4f7;
+    color: #294959;
+    font-size: 13px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+td {
+    color: #405667;
+}
+
+tbody tr {
+    transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+    background: #f5fafb;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.badge-BOOKED {
+    background: #e0edff;
+    color: #2456a6;
+}
+
+.badge-COMPLETED {
+    background: #d9f7e9;
+    color: #08794e;
+}
+
+.badge-CANCELLED {
+    background: #ffe3e3;
+    color: #b4232c;
+}
+
+/* Notifications */
+.alert {
+    padding: 14px 17px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.alert.success {
+    background: #e1f8ec;
+    border-color: #bcebd1;
+    color: #08794e;
+}
+
+.alert.error {
+    background: #fff0ef;
+    border-color: #ffd1ce;
+    color: #b4232c;
+}
+
+/* Messages */
+.msg {
+    max-width: 85%;
+    padding: 14px 17px;
+    margin: 12px 0;
+    border-radius: 13px;
+    overflow-wrap: anywhere;
+}
+
+.msg.sent {
+    margin-left: auto;
+    background: #dcf5f4;
+    border-bottom-right-radius: 4px;
+}
+
+.msg.recv {
+    margin-right: auto;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 4px;
+}
+
+.msg p {
+    margin: 7px 0 0;
+}
+
+summary {
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: 650;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+/* Analytics bars */
+.bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 14px 0;
+}
+
+.bar span {
+    width: 110px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.bar .fill {
+    height: 16px;
+    min-width: 3px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #087f8c, #36b8ad);
+}
+
+/* Login and registration */
+.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top left, #dff4f4, transparent 45%),
+        linear-gradient(135deg, #f3f7fb, #e8f0f6);
+}
+
+.auth .card {
+    width: 100%;
+    max-width: 440px;
+    padding: 34px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(31, 57, 75, 0.09);
+}
+
+.auth h1 {
+    margin-bottom: 8px;
+    font-size: 29px;
+}
+
+.auth .btn {
+    min-height: 46px;
+}
+
+/* Smaller screens */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    main {
+        padding: 24px 18px;
+    }
+
+    .card {
+        padding: 19px;
+    }
+}
+
+@media (max-width: 650px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 16px;
+    }
+
+    .sidebar h2 {
+        font-size: 22px;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        margin: 3px;
+        padding: 9px 11px;
+    }
+
+    main {
+        width: 100%;
+        padding: 20px 14px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .stat {
+        padding: 16px;
+    }
+
+    .stat b {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 550px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .msg {
+        max-width: 95%;
+    }
+
+    .auth .card {
+        padding: 25px;
+    }
+}
+
+/* Fix sidebar logo visibility */
+.sidebar h2 {
+    color: #ffffff !important;
+}
+
+.sidebar .muted {
+    color: #b8d0d8 !important;
+}
+
+/* ==========================================
+   HEALTHCONNECT - MODERN UI ENHANCEMENTS
+   ========================================== */
+
+/* Smooth scrolling and page appearance */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: fadeIn 0.45s ease-out;
+}
+
+/* Sidebar improvements */
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar h2 {
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.sidebar a {
+    transition: background 0.25s ease,
+                transform 0.25s ease,
+                padding-left 0.25s ease;
+    margin: 7px 0;
+}
+
+.sidebar a:hover {
+    transform: translateX(4px);
+    padding-left: 16px;
+}
+
+/* Professional cards */
+.card,
+.stat {
+    border: 1px solid rgba(220, 230, 235, 0.7);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.card:hover,
+.stat:hover {
+    box-shadow: 0 10px 28px rgba(11, 60, 73, 0.09);
+}
+
+.stat {
+    flex: 1;
+    min-width: 150px;
+    padding: 22px;
+    border-radius: 14px;
+}
+
+.stat b {
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+/* Buttons */
+.btn {
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(14, 124, 134, 0.18);
+    opacity: 1;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.danger:hover {
+    box-shadow: 0 5px 12px rgba(192, 57, 43, 0.2);
+}
+
+/* Form fields */
+input,
+select,
+textarea {
+    min-height: 42px;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(14, 124, 134, 0.12);
+}
+
+input[type="checkbox"] {
+    accent-color: var(--primary);
+}
+
+/* Tables */
+table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f5fafb;
+}
+
+td,
+th {
+    padding: 13px 12px;
+}
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 5px 11px;
+    letter-spacing: 0.3px;
+}
+
+/* Appointment status colors */
+.badge-BOOKED {
+    background: #dcecff;
+    color: #1756a9;
+}
+
+.badge-COMPLETED {
+    background: #d8f8e8;
+    color: #087443;
+}
+
+.badge-CANCELLED {
+    background: #ffe3e3;
+    color: #b42318;
+}
+
+/* Analytics bars */
+.bar .fill {
+    transition: width 0.7s ease;
+    background: linear-gradient(90deg, #0e7c86, #35b8ad);
+}
+
+/* Messages */
+.msg {
+    max-width: 85%;
+    padding: 13px 16px;
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.msg.sent {
+    border-bottom-right-radius: 4px;
+}
+
+.msg.recv {
+    border-bottom-left-radius: 4px;
+}
+
+/* Login and registration cards */
+.auth .card {
+    border: 1px solid #e6edf0;
+    border-radius: 20px;
+    box-shadow: 0 18px 50px rgba(11, 60, 73, 0.09);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.auth .btn {
+    min-height: 46px;
+}
+
+/* Success and error alerts */
+.alert {
+    border-radius: 10px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Cleaner headings */
+h1,
+h2,
+h3 {
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+/* Mobile and tablet improvements */
+@media (max-width: 760px) {
+    .sidebar {
+        position: relative;
+        height: auto;
+        overflow: visible;
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat {
+        min-width: 0;
+        padding: 16px;
+    }
+
+    .card {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .msg {
+        max-width: 95%;
+    }
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Sidebar icons */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar a i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.sidebar h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+}
+
+.sidebar h2 i {
+    color: #ffffff;
+}
+
+.sidebar .muted {
+    color: #b8d0d8;
+}
+
+/* Analytics chart layout */
+.analytics-charts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.analytics-charts .card {
+    min-width: 0;
+    padding: 24px;
+}
+
+.analytics-charts h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.analytics-charts canvas {
+    max-height: 320px;
+}
+
+@media (max-width: 768px) {
+    .analytics-charts {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== HealthConnect UI Improvements ===== */
+
+/* Smooth transitions */
+.card,
+.stat,
+.btn,
+.sidebar a {
+    transition: all 0.25s ease;
+}
+
+/* Cards */
+.card {
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(20, 60, 80, 0.05);
+}
+
+.card:hover {
+    box-shadow: 0 10px 28px rgba(20, 60, 80, 0.09);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(20, 60, 80, 0.12);
+}
+
+/* Form fields */
+input,
+select,
+textarea {
+    border-radius: 9px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #078b96;
+    box-shadow: 0 0 0 3px rgba(7, 139, 150, 0.12);
+}
+
+/* Table rows */
+table tr {
+    transition: background-color 0.2s ease;
+}
+
+table tr:hover td {
+    background-color: #f2f9fb;
+}
+
+/* Sidebar navigation */
+.sidebar a {
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.sidebar a:hover {
+    transform: translateX(3px);
+}
+
+/* Status badges */
+.badge {
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    main {
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+    }
+
+    .card {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 550px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

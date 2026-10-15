@@ -454,4 +454,4 @@ Source code: https://github.com/KrishnaRajKRcodes/HealthConsultation
 
 ## License
 
-No open-source license is currently specified in this README. Add a license file if you intend to define permissions for reuse and distribution.
+No open-source license is currently specified in this README.
